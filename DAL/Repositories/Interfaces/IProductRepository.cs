@@ -13,5 +13,8 @@ namespace DAL.Repositories.Interfaces
     public interface IProductRepository : IRepository<Product>
     {
 
+        IEnumerable<Product> GetTopActiveProducts(int count);
+        IEnumerable<Product> GetAllProductsData();
+
     }
 }

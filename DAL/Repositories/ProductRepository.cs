@@ -3,13 +3,14 @@
 // www.ebenmonney.com/templates
 // =============================
 
-using DAL.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using DAL.Models;
 using DAL.Repositories.Interfaces;
 
 namespace DAL.Repositories
@@ -20,7 +21,18 @@ namespace DAL.Repositories
         { }
 
 
+        public IEnumerable<Product> GetTopActiveProducts(int count)
+        {
+            throw new NotImplementedException();
+        }
 
+
+        public IEnumerable<Product> GetAllProductsData()
+        {
+            return _appContext.Products
+                .OrderBy(c => c.Name)
+                .ToList();
+        }
 
         private ApplicationDbContext _appContext => (ApplicationDbContext)_context;
     }
